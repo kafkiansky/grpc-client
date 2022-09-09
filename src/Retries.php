@@ -7,6 +7,9 @@ namespace Kafkiansky\GrpcClient;
 use Carbon\CarbonInterval;
 use Google\Protobuf\Internal\Message;
 
+/**
+ * @template-implements Middleware<Message, Message>
+ */
 final class Retries implements Middleware
 {
     /**

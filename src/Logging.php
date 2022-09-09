@@ -10,6 +10,7 @@ use Psr\Log\LogLevel;
 
 /**
  * @psalm-type Level = LogLevel::*
+ * @template-implements Middleware<Message, Message>
  */
 final class Logging implements Middleware
 {

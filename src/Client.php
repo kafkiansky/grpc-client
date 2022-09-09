@@ -5,18 +5,18 @@ declare(strict_types=1);
 namespace Kafkiansky\GrpcClient;
 
 use Carbon\CarbonInterval;
+use Google\Protobuf\Internal\Message;
 use Grpc\UnaryCall;
 
 /**
  * @template G of \Grpc\BaseStub
  *
  * @psalm-import-type MiddlewareFn from Middleware
- * @psalm-type StackMiddleware = Middleware|callable(MiddlewareFn): MiddlewareFn
  */
 final class Client
 {
     /**
-     * @var StackMiddleware[]
+     * @psalm-var (Middleware<Message, Message>|callable(MiddlewareFn): MiddlewareFn)[]
      */
     private array $stack = [];
 
@@ -29,7 +29,10 @@ final class Client
     }
 
     /**
-     * @param StackMiddleware $middleware
+     * @template TReq of Message
+     * @template TResp of Message
+     *
+     * @param Middleware<TReq, TResp>|callable(MiddlewareFn):MiddlewareFn $middleware
      */
     public function withMiddleware(Middleware|callable $middleware): Client
     {
@@ -49,8 +52,8 @@ final class Client
     }
 
     /**
-     * @template TReq of \Google\Protobuf\Internal\Message
-     * @template TResp of \Google\Protobuf\Internal\Message
+     * @template TReq of Message
+     * @template TResp of Message
      *
      * @psalm-param non-empty-string $method
      * @psalm-param TReq $request
