@@ -46,7 +46,7 @@ final class RetriesTest extends ClientTestCase
                     'context' => [
                         'options' => [
                             'client-name' => 'kafkiansky/grpc-client',
-                            'client-version' => '1.0.0.0',
+                            'client-version' => 'dev-master',
                         ],
                         'metadata' => [],
                         'context' => [
@@ -66,7 +66,7 @@ final class RetriesTest extends ClientTestCase
                     'context' => [
                         'options' => [
                             'client-name' => 'kafkiansky/grpc-client',
-                            'client-version' => '1.0.0.0',
+                            'client-version' => 'dev-master',
                         ],
                         'metadata' => [],
                         'context' => [

@@ -25,6 +25,7 @@ final class Client
      */
     public function __construct(
         private readonly object $delegate,
+        private readonly bool $autoClose = true,
     ) {
     }
 
@@ -48,7 +49,9 @@ final class Client
 
     public function __destruct()
     {
-        $this->close();
+        if ($this->autoClose) {
+            $this->close();
+        }
     }
 
     /**

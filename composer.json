@@ -1,8 +1,31 @@
 {
     "name": "kafkiansky/grpc-client",
     "description": "Generic and extensible grpc client around generated clients.",
-    "type": "library",
     "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "grpc"
+    ],
+    "authors": [
+        {
+            "name": "v.zanfir",
+            "email": "vadimzanfir@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "google/protobuf": "^3.21",
+        "grpc/grpc": "^1.52.0",
+        "nesbot/carbon": "^2.62",
+        "psr/log": "^1.0 || ^2.0 || ^3.0"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.31",
+        "phpunit/phpunit": "^9.5",
+        "vimeo/psalm": "^4.27"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Kafkiansky\\GrpcClient\\": "src/"
@@ -13,23 +36,10 @@
             "Kafkiansky\\GrpcClient\\Tests\\": "tests/"
         }
     },
-    "authors": [
-        {
-            "name": "v.zanfir",
-            "email": "vadimzanfir@gmail.com"
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
         }
-    ],
-    "minimum-stability": "stable",
-    "require": {
-        "php": ">=8.1",
-        "google/protobuf": "^3.21",
-        "grpc/grpc": "^1.42",
-        "psr/log": "^1.0 || ^2.0 || ^3.0",
-        "nesbot/carbon": "^2.62"
-    },
-    "require-dev": {
-        "vimeo/psalm": "^4.27",
-        "phpunit/phpunit": "^9.5"
     },
     "scripts": {
         "lint": "./vendor/bin/psalm --no-cache",
